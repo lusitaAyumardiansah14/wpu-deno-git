@@ -7,7 +7,7 @@ const app = new Application();
 //3. definisikan middleware app kita
 
 app.use((ctx)=>{
-    ctx.response.body = "hello world!";
+    ctx.response.body = "hello nama saya LUSITA AYU MARDIANSAH!";
 
 });
 
