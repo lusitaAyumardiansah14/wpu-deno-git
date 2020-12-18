@@ -1,4 +1,4 @@
-import{ router } from 'https://deno.land/x/oak/mod.ts';
+import{ Router } from 'https://deno.land/x/oak/mod.ts';
 
 const router = new Router();
 
