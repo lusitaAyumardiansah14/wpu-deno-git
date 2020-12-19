@@ -18,4 +18,13 @@ const signup = async({response} : {response : any})=>{
     const html= await renderFileToString("./views/signup.ejs",{});
     response.body = new TextEncoder().encode(html);
 }
-export{home, signup}
+const saveuser = async({request, response}: {request : any, response : any})=>{
+    const body = await request.body();
+
+    const namalengkap = body.value.get("fullname");
+    const namauser = body.value.get("username");
+    const pwd = body.value.get("paswd");
+
+    response.body = "Data yang di POST : "+namalengkap+", "+namauser+", "+pwd;  
+}
+export{home, signup, saveuser}
