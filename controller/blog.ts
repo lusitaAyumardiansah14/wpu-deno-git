@@ -25,6 +25,6 @@ const saveuser = async({request, response}: {request : any, response : any})=>{
     const namauser = body.value.get("username");
     const pwd = body.value.get("paswd");
 
-    response.body = "Data yang di POST : "+namalengkap+", "+namauser+", "+pwd;  
+    response.body = "Data yang di POST : "+namalengkap+", "+namauser+", "+p;  
 }
 export{home, signup, saveuser}
