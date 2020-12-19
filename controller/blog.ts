@@ -1,7 +1,5 @@
 import {renderFileToString} from 'https://deno.land/x/dejs/mod.ts';
-import { toParamRegExp } from "https://deno.land/x/oak@v6.3.2/headers.ts";
 const home = async({response} : {response : any}) => {
-
     const html= await renderFileToString("./views/home.ejs",{
         data :{
             nama : "lusita ayu mardiansah",
@@ -16,4 +14,8 @@ const home = async({response} : {response : any}) => {
     
     response.body = new TextEncoder().encode(html);
 } 
-export{home}
+const signup = async({response} : {response : any})=>{
+    const html= await renderFileToString("./views/signup.ejs",{});
+    response.body = new TextEncoder().encode(html);
+}
+export{home, signup}

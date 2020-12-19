@@ -1,9 +1,10 @@
 import{ Router } from 'https://deno.land/x/oak/mod.ts';
-import{home} from './controller/blog.ts';
+import{home, signup} from './controller/blog.ts';
 const router = new Router();
 
 router
     .get("/",home)
+    .get("/daftar", signup)
     .get("/kategori", (ctx)=>{
         ctx.response.body = "ini halaman kategori";
     })
