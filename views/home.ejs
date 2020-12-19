@@ -17,11 +17,11 @@
       <tr>
           <th>NIM</th>
           <th>Nama</th>
-      </tr>  
-      <% for (var i in data.mahasiwa){ %>
+      </tr>    
+      <%for(var i in data.mahasiswa){%>
         <tr>
-          <td><%=data.mahasiswa[i].nim %></td>
-          <td><%=data.mahasiswa[i].nama %></td>  
+          <td><%= data.mahasiswa[i].nim%></td>
+          <td><%= data.mahasiswa[i].nama%></td>
         </tr>
     <% } %>
     </table>
