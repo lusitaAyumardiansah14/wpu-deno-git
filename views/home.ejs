@@ -12,8 +12,8 @@
     
 
     <!-- Bootstrap core CSS -->
-    <link href="./assets/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-
+    <link  href="./assets/bootstrap.min.css"  rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    
     <!-- Favicons -->
 <link rel="apple-touch-icon" href="/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
 <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
@@ -44,7 +44,7 @@
     <!-- Custom styles for this template -->
     <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="blog.css" rel="stylesheet">
+    <link href="./assets/blog.css" rel="stylesheet">
   </head>
   <body>
     
@@ -70,7 +70,7 @@
     <nav class="nav d-flex justify-content-between">
       <% for(var i in data.pemrograman) { %>
     <a class="p-2 link-secondary" href="#"><%=data.pemrograman[i] %></a>
-     <%}%>
+     <% } %>
     </nav>
   </div>
 </div>
