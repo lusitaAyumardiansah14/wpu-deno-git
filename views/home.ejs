@@ -7,6 +7,23 @@
     
 </head>
 <body>
-    <h1>selamat datang Deno JS</h1>
+    <h1>selamat datang <%= data.nama%></h1>
+    <ul>
+        <% for (var i in data.pemrograman) {%>
+            <li><%=data.pemrograman[i]%></li>
+        <% } %>
+    </ul>
+    <table>
+      <tr>
+          <th>NIM</th>
+          <th>Nama</th>
+      </tr>  
+      <% for (var i in data.mahasiwa){ %>
+        <tr>
+          <td><%=data.mahasiswa[i].nim %></td>
+          <td><%=data.mahasiswa[i].nama %></td>  
+        </tr>
+    <% } %>
+    </table>
 </body>
 </html>
