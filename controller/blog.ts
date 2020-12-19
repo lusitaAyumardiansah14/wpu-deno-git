@@ -27,4 +27,8 @@ const saveuser = async({request, response}: {request : any, response : any})=>{
 
     response.body = "Data yang di POST : "+namalengkap+", "+namauser+", "+pwd;  
 }
-export{home, signup, saveuser}
+const kategori = async({params, response} : {params : {id : string}, response:any})=>{
+    response.body = "ID Parameter : "+params.id;
+}
+
+export{home, signup, saveuser, kategori}
