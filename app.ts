@@ -1,6 +1,7 @@
 //1. import modul application dari https://deno.land/x/oak/mod.ts
 import{ Application,send } from 'https://deno.land/x/oak/mod.ts';
 import router from './rute.ts';
+
 //2. new instance application ke variable kita
 const app = new Application();
 
