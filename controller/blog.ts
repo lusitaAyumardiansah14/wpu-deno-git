@@ -11,7 +11,8 @@ const home = async({response} : {response : any}) => {
             ]
         },
         subview:{
-            namafile : "./views/blog-main.ejs"
+            namafile : "./views/blog-main.ejs",
+            showjumbotron : true
         }
     });
     
@@ -23,7 +24,8 @@ const signup = async({response} : {response : any})=>{
             pemrograman : ["PHP","Typescript","Javascript"]
         },
         subview : {
-            namafile : "./views/signup.ejs"
+            namafile : "./views/signup.ejs",
+            showjumbotron : false
         }
 
     });
