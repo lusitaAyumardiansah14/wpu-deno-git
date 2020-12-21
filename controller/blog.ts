@@ -20,11 +20,11 @@ const home = async({response} : {response : any}) => {
 const signup = async({response} : {response : any})=>{
     const html= await renderFileToString("./views/signup.ejs",{
         data : {
-            pemrograman : ["PHP","Typescript","Javascript"],
+            pemrograman : ["PHP","Typescript","Javascript"]
         },
         subview : {
             namafile : "./views/signup.ejs"
-        },
+        }
 
     });
     response.body = new TextEncoder().encode(html);
