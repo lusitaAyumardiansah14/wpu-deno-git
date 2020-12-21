@@ -9,13 +9,24 @@ const home = async({response} : {response : any}) => {
                 {nim:"2", "nama" : "santi"},
                 {nim:"3", "nama" : "anisya"}
             ]
+        },
+        subview:{
+            namafile : "./views/blog-main.ejs"
         }
     });
     
     response.body = new TextEncoder().encode(html);
 } 
 const signup = async({response} : {response : any})=>{
-    const html= await renderFileToString("./views/signup.ejs",{});
+    const html= await renderFileToString("./views/signup.ejs",{
+        data : {
+            pemrograman : ["PHP","Typescript","Javascript"],
+        },
+        subview : {
+            namafile : "./views/signup.ejs"
+        },
+
+    });
     response.body = new TextEncoder().encode(html);
 }
 const saveuser = async({request, response}: {request : any, response : any})=>{
