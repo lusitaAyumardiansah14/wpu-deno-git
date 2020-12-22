@@ -22,7 +22,8 @@ const signup = async({response} : {response : any})=>{
     const html= await renderFileToString("./views/signup.ejs",{
         data : {
             pemrograman : await select({
-                text : TSql['ktgFindall']
+                text : TSql['ktgFindByKode'],
+                args : ['php', 'ts','js']
             })
         },
         subview : {
