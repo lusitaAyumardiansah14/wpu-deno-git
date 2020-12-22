@@ -15,7 +15,5 @@ app.use(async (context) => {
       root: `${Deno.cwd()}`
     });
 });
-  
-//4. jalankan server
 console.log("service berjalan di port 8000");
 await app.listen({port :8000});
