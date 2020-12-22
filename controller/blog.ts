@@ -1,11 +1,14 @@
 import {renderFileToString} from 'https://deno.land/x/dejs/mod.ts';
 import{select } from '../models/pg_model.ts';
+import TSql from '../models/sql.ts';
+
 
 const home = async({response} : {response : any}) => {
     const html= await renderFileToString("./views/home.ejs",{
         data :{
-            nama : "lusita ayu mardiansah",
-            pemrograman : await select()
+            pemrograman : await select({
+                text : TSql['ktgFindall']
+            })
         },
         subview:{
             namafile : "./views/blog-main.ejs",
@@ -18,7 +21,9 @@ const home = async({response} : {response : any}) => {
 const signup = async({response} : {response : any})=>{
     const html= await renderFileToString("./views/signup.ejs",{
         data : {
-            pemrograman : await select()
+            pemrograman : await select({
+                text : TSql['ktgFindall']
+            })
         },
         subview : {
             namafile : "./views/signup.ejs",
