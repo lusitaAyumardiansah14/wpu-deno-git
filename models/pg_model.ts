@@ -1,5 +1,5 @@
 import{ Client } from 'https://deno.land/x/postgres/mod.ts';
-import {QueryResult} from 'https://deno.land/x/query.ts';
+import {QueryResult} from 'https://deno.land/x/postgres/query.ts';
 
 const client = new Client({
     hostname : "localhost",
