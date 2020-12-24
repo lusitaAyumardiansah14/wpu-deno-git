@@ -1,25 +1,28 @@
 import {renderFileToString} from 'https://deno.land/x/dejs/mod.ts';
-import{select } from '../models/pg_model.ts';
+import { select } from '../models/pg_model.ts';
 import TSql from '../models/sql.ts';
 
-
 const home = async({response} : {response : any}) => {
-    const html= await renderFileToString("./views/home.ejs",{
-        data :{
-            pemrograman : await select({
-                text : TSql['ktgFindall']
-            })
-        },
-        subview:{
-            namafile : "./views/blog-main.ejs",
-            showjumbotron : true
-        }
-    });
-    
-    response.body = new TextEncoder().encode(html);
+    try {
+        const html  = await renderFileToString("./views/home.ejs", {
+            data : {
+                pemrograman : await select({
+                    text : TSql['ktgFindall']
+                })
+            },
+            subview :{
+                namafile : "./views/blog-main.ejs",
+                showjumbotron : true
+            }
+        });
+        response.body = new TextEncoder().encode(html);
+    }catch(error) {
+        console.log(error);
+    }
 } 
+
 const signup = async({response} : {response : any})=>{
-    const html= await renderFileToString("./views/signup.ejs",{
+    const html= await renderFileToString("./views/home.ejs",{
         data : {
             pemrograman : await select({
                 text : TSql['ktgFindByKode'],

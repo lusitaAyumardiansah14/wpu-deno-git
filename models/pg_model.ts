@@ -5,14 +5,22 @@ const client = new Client({
     hostname : "localhost",
     port : 5432,
     user : "lusitaayu",
-    password : "lusita123",
+    //user : "lusitaayu",
+    password : "lusitaayu123",
+    //password : "lusita123",
     database : "db_blog"
 
 });
-export async function select(qry : QueryConfig){
-    await client.connect();
-    let hasil : QueryResult = await client.query(qry);
-    await client.end();
 
-    return hasil.rowsOfObjects();
-}
+export async function select(qry : QueryConfig){
+    let table : any = [];
+    try{
+        await client.connect();
+        let hasil : QueryResult = await client.query(qry);
+        await client.end();
+        table = hasil.rowsOfObjects();
+    }catch(error) {
+        console.log(error);
+    }
+    return table;
+};

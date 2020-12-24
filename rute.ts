@@ -6,7 +6,8 @@ router
     .get("/",home)
     .get("/daftar", signup)
     .post("/simpanuser", saveuser)
-    .get("/kategori/:id ",kategori)
+    //.get("/kategori/ : id ",kategori). Cara penulisan rute seperti ini salah
+    .get("/kategori/:id ",kategori)//yg benar spt ini
     .get("/about", (ctx)=>{
         ctx.response.body = "ini halaman About";
     });
