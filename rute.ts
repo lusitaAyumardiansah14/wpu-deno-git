@@ -6,7 +6,7 @@ router
     .get("/",home)
     .get("/daftar", signup)
     .post("/simpanuser", saveuser)
-    .get("/kategori/ : id ",kategori)
+    .get("/kategori/:id ",kategori)
     .get("/about", (ctx)=>{
         ctx.response.body = "ini halaman About";
     });
