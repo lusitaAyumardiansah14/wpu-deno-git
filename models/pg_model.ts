@@ -13,24 +13,14 @@ const client = new Client({
 });
 
 export async function select(qry : QueryConfig){
-    await client.connect();
-    let hasil : QueryResult = await client.query(qry);
-    await client.end();
-
-    return hasil.rowsOfObjects();
-}
-
-export async function multiSelect(qry : QueryConfig[]){
-    await client.connect();
-    let hasil : QueryResult[] =  await client.multiQuery(qry);
-    await client.end();
-
-    let tables : any = [];
-    hasil.forEach((obj)=>{
-        tables.push(obj.rowsOfObjects() );
-    });
-
-    return tables;
-}
-    
-
+    let table : any = [];
+    try{
+        await client.connect();
+        let hasil : QueryResult = await client.query(qry);
+        await client.end();
+        table = hasil.rowsOfObjects();
+    }catch(error) {
+        console.log(error);
+    }
+    return table;
+};
