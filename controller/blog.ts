@@ -7,7 +7,7 @@ const home = async({response} : {response : any}) => {
         const html  = await renderFileToString("./views/home.ejs", {
             data : {
                 pemrograman : await select({
-                    text : TSql['ktgFindAll']
+                    text : TSql['ktgFindall']
                 })
             },
             subview :{
