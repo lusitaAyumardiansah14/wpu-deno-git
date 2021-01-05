@@ -71,9 +71,32 @@ const signup = async({response,request, state} : {response : any, request :any, 
     }
     
 }
+const login = async({response,request, state} : {response : any, request :any, state : any}) =>{
+    if(!request.hasBody){
+        const html= await renderFileToString("./views/home.ejs",{
+            data : {
+                pemrograman : await select({
+                    text : TSql['ktgFindInKode'],
+                    args : ['php', 'ts','js']
+                }),
+                bloginfo : await select({
+                    text : TSql['BlogInfoFindAll']
+                }),
+                
+            },
+            subview : {
+                namafile : "./views/login.ejs",
+                showjumbotron : false
+            }
+    
+        });
+            response.body = new TextEncoder().encode(html);
+    }else{
 
+    }
+}
 const kategori = async({params, response} : {params : {id : string}, response:any})=>{
     response.body = "ID Parameter : "+params.id;
 }
 
-export{home, signup, kategori}
+export{home, signup, kategori,login}
