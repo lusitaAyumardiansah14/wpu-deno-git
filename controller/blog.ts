@@ -6,7 +6,7 @@ import TSql from '../models/sql.ts';
 const home = async({response} : {response : any}) => {
         const dataTable = await select(
             [
-                {text : TSql['KtgFindALL']},
+                {text : TSql['ktgFindAll']},
                 {text : TSql['BlogInfoFindAll']}
             ]
 

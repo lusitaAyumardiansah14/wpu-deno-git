@@ -4,32 +4,37 @@ import {QueryConfig, QueryResult} from 'https://deno.land/x/postgres/query.ts';
 const client = new Client({
     hostname : "localhost",
     port : 5432,
-    user : "lusitaayu",
-    //user : "lusitaayu",
-    password : "lusita123",
+    user : "postgres",
+    password : "1234",
     //password : "lusita123",
     database : "db_blog"
 
 });
 
 export async function select(qry : QueryConfig |QueryConfig[] ){
-   await client.connect();
-   let table : any = [];
-   let hasil : QueryResult | QueryResult[];
-   if(Array.isArray(qry)){
-       hasil = await client.multiQuery(qry);
-       hasil.forEach((obj) =>{
-            table.push(obj.rowsOfObjects() );
-       });
-       
-   }else{
-        hasil = await client.query(qry);
-        table = hasil.rowsOfObjects();
-   } 
-   await client.end();
-   return table;
+    let table : any = [];
+    try {
+        await client.connect();
 
-}     
+        let hasil : QueryResult | QueryResult[];
+        if(Array.isArray(qry)){
+            hasil = await client.multiQuery(qry);
+            hasil.forEach((obj) =>{
+                 table.push(obj.rowsOfObjects() );
+            });
+            
+        }else{
+             hasil = await client.query(qry);
+             table = hasil.rowsOfObjects();
+        } 
+        await client.end();
+    } catch(error) {
+        console.log(error);
+    }
+  
+    return table;
+
+}
 export async function insert(qry : QueryConfig):Promise<any[]> {
     let table : any = [];
     try{
